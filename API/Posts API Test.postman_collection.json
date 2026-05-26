@@ -1,0 +1,203 @@
+{
+  "info": {
+    "_postman_id": "e4d7ba7a-91c6-417b-b667-d876b47b33dc",
+    "name": "Posts API Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55153727",
+    "_collection_link": "https://go.postman.co/collection/55153727-e4d7ba7a-91c6-417b-b667-d876b47b33dc?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Post",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "48ee47c1-27f6-4d4e-9ed7-21965be55b24",
+              "src": "/C:/Users/lenovo/Pictures/Screenshots/Linkedin.png"
+            },
+            {
+              "key": "caption",
+              "value": "New Caption",
+              "type": "text",
+              "uuid": "d9c96d04-d27f-4069-b219-c1f3f6dd7a39"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/post",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "post"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Posts",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "48ee47c1-27f6-4d4e-9ed7-21965be55b24",
+              "src": "/C:/Users/lenovo/Downloads/new_image.png"
+            },
+            {
+              "key": "caption",
+              "value": "test caption 2",
+              "type": "text",
+              "uuid": "d9c96d04-d27f-4069-b219-c1f3f6dd7a39"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/post/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "post",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post by ID",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "48ee47c1-27f6-4d4e-9ed7-21965be55b24",
+              "src": "/C:/Users/lenovo/Downloads/new_image.png"
+            },
+            {
+              "key": "caption",
+              "value": "test caption 2",
+              "type": "text",
+              "uuid": "d9c96d04-d27f-4069-b219-c1f3f6dd7a39"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/post/6a15d420e661481300eaf319",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "post",
+            "6a15d420e661481300eaf319"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete a Post by ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "48ee47c1-27f6-4d4e-9ed7-21965be55b24",
+              "src": "/C:/Users/lenovo/Downloads/new_image.png"
+            },
+            {
+              "key": "caption",
+              "value": "test caption 2",
+              "type": "text",
+              "uuid": "d9c96d04-d27f-4069-b219-c1f3f6dd7a39"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/post/delete/6a15d420e661481300eaf319",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "post",
+            "delete",
+            "6a15d420e661481300eaf319"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update a Post by ID",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "48ee47c1-27f6-4d4e-9ed7-21965be55b24",
+              "src": "/C:/Users/lenovo/Pictures/Screenshots/Linkedin.png"
+            },
+            {
+              "key": "caption",
+              "value": "This is an updated caption at 22:12",
+              "type": "text",
+              "uuid": "d9c96d04-d27f-4069-b219-c1f3f6dd7a39"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/post/update/6a15acdf1edb8de712bc38cc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "post",
+            "update",
+            "6a15acdf1edb8de712bc38cc"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

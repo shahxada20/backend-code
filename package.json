@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A simple backend server using Express.js to handle API requests and serve static files.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon --env-file=.env --trace-warnings server.js"
+  },
+  "keywords": [
+    "backend",
+    "express",
+    "nodejs"
+  ],
+  "author": "Shahzad",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@imagekit/nodejs": "^7.6.2",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.6.2",
+    "multer": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
