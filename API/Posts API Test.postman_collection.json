@@ -30,14 +30,15 @@
           ]
         },
         "url": {
-          "raw": "http://localhost:5000/post",
+          "raw": "http://localhost:5000/post/create",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "5000",
           "path": [
-            "post"
+            "post",
+            "create"
           ]
         }
       },

@@ -14,11 +14,8 @@ const createPost = async (req, res, next) => {
         // console.log(`ImageKit Upload Response: {fileId:  ${uploadResponse.fileId}, size: ${uploadResponse.size}, url ${uploadResponse.url} }`);
 
         const post = await postModel.create({
-            fileId: uploadResponse.fileId,
-            file_url: uploadResponse.url,
+            image: uploadResponse.url,
             caption: req.body.caption,
-            filetype: uploadResponse.fileType,
-            size: uploadResponse.size,
             created_at: new Date()
         });
 
@@ -75,10 +72,8 @@ const updatePost = async (req, res, next) => {
 
         if (req.file) {
             const uploadResponse = await uploadFile.uploadFile(req.file.buffer);
-            updatedData.fileId = uploadResponse.fileId;
-            updatedData.file_url = uploadResponse.url;
-            updatedData.filetype = uploadResponse.fileType;
-            updatedData.size = uploadResponse.size;
+            updatedData.image = uploadResponse.url;
+            updatedData.created_at = new Date();
         }
 
         const post = await postModel.findByIdAndUpdate(id, updatedData, { returnDocument: "after" });

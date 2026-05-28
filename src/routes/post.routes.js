@@ -8,7 +8,7 @@ const postController = require("../controllers/post.controller");
 const upload = multer({ storage: multer.memoryStorage() });
 
 // Routes Mapping
-router.post("/", upload.single("image"), postController.createPost);
+router.post("/create", upload.single("image"), postController.createPost);
 router.get("/all", postController.getAllPosts);
 router.get("/:id", postController.getPostById);
 router.delete("/delete/:id", postController.deletePost);
