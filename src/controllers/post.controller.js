@@ -14,6 +14,7 @@ const createPost = async (req, res, next) => {
         // console.log(`ImageKit Upload Response: {fileId:  ${uploadResponse.fileId}, size: ${uploadResponse.size}, url ${uploadResponse.url} }`);
 
         const post = await postModel.create({
+            user: req.user._id,
             image: uploadResponse.url,
             caption: req.body.caption,
             created_at: new Date()
@@ -54,10 +55,14 @@ const getPostById = async (req, res, next) => {
 const deletePost = async (req, res, next) => {
     const id = req.params.id;
     try {
-        const post = await postModel.findByIdAndDelete(id);
+        const post = await postModel.findById(id);
         if (!post) {
             return res.status(404).json({ message: "Post not found" });
         }
+        if (post.user.toString() !== req.user._id.toString()) {
+            return res.status(403).json({ message: "You can only delete your own posts!" });
+        }
+        await postModel.findByIdAndDelete(id);
         res.status(200).json({ message: "Post deleted successfully", post });
     } catch (error) {
         next(error);
@@ -76,11 +81,17 @@ const updatePost = async (req, res, next) => {
             updatedData.created_at = new Date();
         }
 
-        const post = await postModel.findByIdAndUpdate(id, updatedData, { returnDocument: "after" });
+        const post = await postModel.findById(id);
         if (!post) {
             return res.status(404).json({ message: "Post not found" });
         }
-        res.status(200).json({ message: "Post updated successfully", post });
+
+        if (post.user.toString() !== req.user._id.toString()) {
+            return res.status(403).json({ message: "You can only update your own posts!" });
+        }
+
+        const updatedPost = await postModel.findByIdAndUpdate(id, updatedData, { returnDocument: "after" });
+        res.status(200).json({ message: "Post updated successfully", post: updatedPost });
 
     } catch (error) {
         next(error);
