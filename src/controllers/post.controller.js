@@ -20,7 +20,7 @@ const createPost = async (req, res, next) => {
             created_at: new Date()
         });
 
-        res.status(201).json({ message: `Post created successfully - id: ${post._id}`, post });
+        res.status(201).json({ message: "Post created successfully", post });
 
     } catch (error) {
         next(error);
